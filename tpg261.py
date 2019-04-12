@@ -6,7 +6,7 @@ import sys, time, pymeasure, rospy, std_msgs, serial
 class device(object):
 
     def __init__(self):
-    self.tpg261 = serial.Serial("/dev/ttyUSB1",timeout=1)
+        self.tpg261 = serial.Serial("/dev/ttyUSB1",timeout=1)
 
 
     def pressure_device(self):
