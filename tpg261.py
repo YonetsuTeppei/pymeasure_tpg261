@@ -4,6 +4,7 @@ import sys, time, pymeasure, rospy, std_msgs
 
 
  class device(object):
+     
     def pressure_device(self):
          tpg261_driver.tpg261.write(b"PR1 \r\n")
          time.sleep(0.3)
