@@ -23,11 +23,12 @@ class device(object):
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
-         raw = self.tpg261.readline()
-         status1 = raw[0:1]
-         status2 = raw[14:15]
-         pressure1 = str(raw[2:13])
-         pressure2 = str(raw[16:27])
+         raw1 = self.tpg261.readline()
+         status1 = raw1[0:1]
+         status2 = raw1[14:15]
+         pressure1 = str(raw1[2:13])
+         pressure2 = str(raw1[16:27])
+
     def gauge_check(self,gauge1 = 0,gauge2 = 0):
         self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
         time.sleep(0.3)
