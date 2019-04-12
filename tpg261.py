@@ -26,8 +26,8 @@ class device(object):
          raw = self.tpg261.readline()
          status1 = raw[0:1]
          status2 = raw[14:15]
-         pressure12 = str(raw[2:13],raw[16:27])
-
+         pressure1 = str(raw[2:13])
+         pressure2 = str(raw[16:27])
     def gauge_check(self,gauge1 = 0,gauge2 = 0):
         self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
         time.sleep(0.3)
