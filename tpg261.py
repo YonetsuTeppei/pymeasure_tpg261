@@ -14,7 +14,7 @@ class device(object):
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
-         raw = tpg261_driver.tpg261.readline()
+         raw = self.tpg261.readline()
          status = raw[0:1]
          pressure = str(raw[2:13])
 
@@ -23,7 +23,7 @@ class device(object):
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
-         raw = tpg261_driver.tpg261.readline()
+         raw = self.tpg261.readline()
          status1 = raw[0:1]
          status2 = raw[14:15]
          pressure12 = str(raw[2:13],raw[16:27])
@@ -33,7 +33,7 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = tpg261_driver.tpg261.readline()
+        get = self.tpg261.readline()
         status1 = str(get[0:1])
         status2 = str(get[2:3])
 
@@ -42,7 +42,7 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = tpg261_driver.tpg261.readline()
+        get = self.tpg261.readline()
         status1 = str(get[0:1])
         status2 = str(get[2:3])
 
@@ -51,7 +51,7 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = tpg261_driver.tpg261.readline()
+        get = self.tpg261.readline()
         status = str(get[0:1])
 
     def change_gague2(self):
@@ -59,7 +59,7 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = tpg261_driver.tpg261.readline()
+        get = self.tpg261.readline()
         status = str(get[0:1])
 
     def query_error(self):
@@ -67,5 +67,5 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = tpg261_driver.tpg261.readline()
+        get = self.tpg261.readline()
         status = str(get[0:4])
