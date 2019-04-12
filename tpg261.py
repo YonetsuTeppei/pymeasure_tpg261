@@ -12,7 +12,7 @@ class device(object):
     def pressure_device(self):
          self.tpg261.write(b"PR1 \r\n")
          time.sleep(0.3)
-         self..tpg261.write(b"\x05")
+         self.tpg261.write(b"\x05")
          time.sleep(0.3)
          raw = tpg261_driver.tpg261.readline()
          status = raw[0:1]
