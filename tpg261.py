@@ -49,7 +49,7 @@ class device(object):
     def change_gague1(self):
         self.tpg261.write(b"SCT , 0\r\n")
         time.sleep(0.3)
-        self..tpg261.write(b"\x05")
+        self.tpg261.write(b"\x05")
         time.sleep(0.3)
         get = tpg261_driver.tpg261.readline()
         status = str(get[0:1])
