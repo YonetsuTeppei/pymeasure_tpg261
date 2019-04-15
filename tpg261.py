@@ -9,7 +9,7 @@ class device(object):
         self.tpg261 = serial.Serial("/dev/ttyUSB1",timeout=1)
 
 
-    def pressure_device(self):
+    def pressure_device(self,raw1):
          self.tpg261.write(b"PR1 \r\n")
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
