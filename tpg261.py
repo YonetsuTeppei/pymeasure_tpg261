@@ -18,7 +18,7 @@ class device(object):
          status = raw1[0:1]
          pressure = str(raw1[2:13])
 
-    def pressure_both(self):
+    def pressure_both(self,raw1):
          self.tpg261.write(b"PRX \r\n")
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
