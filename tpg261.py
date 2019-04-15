@@ -16,4 +16,4 @@ class device(object):
          time.sleep(0.3)
          raw = self.tpg261.readline()
          status = raw[0:1]
-         pressure = str(raw1[2:13])
+         pressure = str(raw[2:13])
