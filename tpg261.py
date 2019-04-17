@@ -18,7 +18,7 @@ class device(object):
          status = raw[0:1]
          pressure = str(raw[2:13])
 
-    def check(self):
+    def check(self,raw):
         if raw == b'\x06\r\n':
             self.a = 0
         else:
