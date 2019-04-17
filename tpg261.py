@@ -20,8 +20,8 @@ class device(object):
 
     def check(self,a):
         if raw == b'\x06\r\n':
-            a = 0
+            self.a = 0
         else:
-            a = 1
+            self.a = 1
 
         return a
