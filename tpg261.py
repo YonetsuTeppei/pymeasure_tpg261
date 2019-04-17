@@ -23,5 +23,4 @@ class device(object):
             self.a = 0
         else:
             self.a = 1
-
-        return a
+        return self.a
