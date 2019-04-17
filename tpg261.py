@@ -9,17 +9,17 @@ class device(object):
         self.tpg261 = serial.Serial("/dev/ttyUSB1",timeout=1)
 
 
-    def pressure_device(self):
+    def pressure_device(self,raw):
          self.tpg261.write(b"PR1 \r\n")
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
-         self.raw = self.tpg261.readline()
+         raw = self.tpg261.readline()
          status = self.raw[0:1]
          pressure = str(self.raw[2:13])
 
     def check(self,raw):
-        if self.raw == b'\x06\r\n':
+        if raw == b'\x06\r\n':
             self.a = 0
         else:
             self.a = 1
