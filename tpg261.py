@@ -17,3 +17,11 @@ class device(object):
          raw = self.tpg261.readline()
          status = raw[0:1]
          pressure = str(raw[2:13])
+
+    def check():
+        if raw == b'\x06\r\n':
+            a = 0
+        else:
+            a = 1
+
+        return a
