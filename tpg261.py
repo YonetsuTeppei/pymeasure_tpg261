@@ -15,7 +15,7 @@ class device(object):
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
          self.raw = self.tpg261.readline()
-         pressure = str(self.raw[2:13])
+         pressure = str(self.raw[2:12])
          print("a"+pressure+"b")
          return pressure
 
