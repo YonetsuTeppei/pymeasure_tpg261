@@ -15,8 +15,8 @@ class device(object):
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
          self.raw = self.tpg261.readline()
-         status = raw[0:1]
-         pressure = str(raw[2:13])
+         status = self.raw[0:1]
+         pressure = str(self.raw[2:13])
 
     def check(self,raw):
         if raw == b'\x06\r\n':
