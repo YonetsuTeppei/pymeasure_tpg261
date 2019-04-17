@@ -16,7 +16,6 @@ class device(object):
          time.sleep(0.3)
          self.raw = self.tpg261.readline()
          pressure = self.raw[2:13]
-         print("a"+pressure+"b")
          return pressure
 
     def pressure_error(self):
