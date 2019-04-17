@@ -15,7 +15,7 @@ class device(object):
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
          self.raw = self.tpg261.readline()
-         pressure = float(self.raw[2:13])
+         pressure = str(self.raw[2:13])
          return pressure
 
     def pressure_error(self):
