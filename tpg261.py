@@ -11,9 +11,9 @@ class device(object):
 
     def pressure(self):
          self.tpg261.write(b"PR1 \r\n")
-         time.sleep(2.0)
+         time.sleep(0.3)
          self.tpg261.write(b"\x05")
-         time.sleep(2.0)
+         time.sleep(0.3)
          self.raw = self.tpg261.readline()
          pressure = str(self.raw[2:13])
          return pressure
