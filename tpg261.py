@@ -42,7 +42,7 @@ class device(object):
         status1 = self.get[0:1]
         return status1
 
-    def gague2_check(self):
+    def gauge2_check(self):
         status2 = self.get[2:3]
         return status2
 
