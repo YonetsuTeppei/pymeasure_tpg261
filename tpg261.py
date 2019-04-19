@@ -14,17 +14,17 @@ class device(object):
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
-         self.raw = self.tpg261.readline()
-         pressure = str(self.raw[2:13])
+         self.raw_p = self.tpg261.readline()
+         pressure = str(self.raw_p[2:13])
          pressure = pressure.strip("b'")
          return pressure
 
     def pressure_error(self):
-         status = self.raw[0:1]
-         return status
+         status_p = self.raw_p[0:1]
+         return status_p
 
     def check(self):
-        if self.raw == b'\x06\r\n' :
+        if self.raw_p == b'\x06\r\n' :
             self.a = 0
         else:
             self.a = 1
@@ -35,30 +35,29 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        self.get = self.tpg261.readline()
-        status1 = self.get[0:1]
-        status2 = self.get[2:3]
+        self.raw_g = self.tpg261.readline()
+        status1_g = self.raw_g[0:1]
+        status2_g = self.raw_g[2:3]
 
     def gauge1_check(self):
-        status1 = self.get[0:1]
+        status1_g = self.raw_g[0:1]
         return status1
 
     def gauge2_check(self):
-        status2 = self.get[2:3]
+        status2_g = self.raw_g[2:3]
         return status2
 
 '''
- def pressure_both(self,raw1):
+ def pressure_both(self):
          self.tpg261.write(b"PRX \r\n")
          time.sleep(0.3)
          self.tpg261.write(b"\x05")
          time.sleep(0.3)
-         raw1 = self.tpg261.readline()
-         status1 = raw2[0:1]
-         status2 = raw2[14:15]
+         rawb = self.tpg261.readline()
+         status1 = rawb[0:1]
+         status2 = rawb[14:15]
          pressure1 = str(raw2[2:13])
          pressure2 = str(raw2[16:27])
-
 
 
     def gauge_change(self,gague1,gague2):
