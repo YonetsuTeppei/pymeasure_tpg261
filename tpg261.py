@@ -20,7 +20,8 @@ class device(object):
          return pressure
 
     def pressure_error(self):
-         status = self.raw[0:1]
+         status = str(self.raw[0:1])
+         status = status.strip("b'")
          return status
 
     def check(self):
@@ -29,6 +30,21 @@ class device(object):
         else:
             self.a = 1
         return self.a
+
+    def gauge_query(self,gauge1 = 0,gauge2 = 0):
+        self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        self.get = self.tpg261.readline()
+
+    def gauge1_check(self):
+        status1 = self.get[0:1]
+        return status1
+
+    def gague2_check(self):
+        status2 = self.get[2:3]
+        return status2
 
 '''
  def pressure_both(self,raw1):
@@ -42,14 +58,7 @@ class device(object):
          pressure1 = str(raw2[2:13])
          pressure2 = str(raw2[16:27])
 
-    def gauge_check(self,gauge1 = 0,gauge2 = 0):
-        self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
-        time.sleep(0.3)
-        self.tpg261.write(b"\x05")
-        time.sleep(0.3)
-        get = self.tpg261.readline()
-        status1 = str(get[0:1])
-        status2 = str(get[2:3])
+
 
     def gauge_change(self,gague1,gague2):
         self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
