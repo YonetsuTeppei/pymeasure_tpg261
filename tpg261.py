@@ -31,8 +31,8 @@ class device(object):
             self.a = 1
         return self.a
 
-    def gauge_query(self,gauge1 = 0,gauge2 = 0):
-        self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
+    def gauge_query(self,):
+        self.tpg261.write(b"SEN , 0, 0 \r\n")
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
