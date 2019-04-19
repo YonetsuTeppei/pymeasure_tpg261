@@ -37,7 +37,9 @@ class device(object):
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
         self.get = self.tpg261.readline()
-
+        status1 = self.get[0:1]
+        status2 = self.get[2:3]
+        
     def gauge1_check(self):
         status1 = self.get[0:1]
         return status1
