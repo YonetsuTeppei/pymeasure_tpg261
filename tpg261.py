@@ -47,6 +47,32 @@ class device(object):
         status2_g = self.raw_g[2:3]
         return status2
 
+    def pres_unit_bar(self):
+        self.tpg261.write(b"UNI,0 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        self.raw_bar = self.tpg261.readline()
+        unit = self.raw_bar[0:1]
+        return unit
+
+    def pres_unit_torr(self):
+        self.tpg261.write(b"UNI,1 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        self.raw_torr = self.tpg261.readline()
+        unit = self.raw_torr[0:1]
+        return unit
+
+    def pres_unit_pa(self):
+        self.tpg261.write(b"UNI,2 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        self.raw_pa = self.tpg261.readline()
+        unit = self.raw_pa[0:1]
+        return unit
 '''
  def pressure_both(self):
          self.tpg261.write(b"PRX \r\n")
