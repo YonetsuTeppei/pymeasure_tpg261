@@ -20,8 +20,7 @@ class device(object):
          return pressure
 
     def pressure_error(self):
-         status = str(self.raw[0:1])
-         status = status.strip("b'")
+         status = self.raw[0:1]
          return status
 
     def check(self):
