@@ -30,7 +30,7 @@ class device(object):
             self.a = 1
         return self.a
 
-    def gauge_query(self,):
+    def gauge_query(self):
         self.tpg261.write(b"SEN , 0, 0 \r\n")
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
@@ -41,11 +41,11 @@ class device(object):
 
     def gauge1_check(self):
         status1_g = self.raw_g[0:1]
-        return status1
+        return status1_g
 
     def gauge2_check(self):
         status2_g = self.raw_g[2:3]
-        return status2
+        return status2_g
 
     def pres_unit_bar(self):
         self.tpg261.write(b"UNI,0 \r\n")
