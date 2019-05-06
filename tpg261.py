@@ -35,26 +35,27 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        self.raw_g = self.tpg261.readline()
-        status1_g = self.raw_g[0:1]
-        status2_g = self.raw_g[2:3]
+        self.get = self.tpg261.readline()
+        status1_g = self.get[0:1]
+        status2_g = self.get[2:3]
 
     def gauge1_check(self):
-        status1_g = self.raw_g[0:1]
+        status1_g = self.get[0:1]
         return status1_g
 
     def gauge2_check(self):
-        status2_g = self.raw_g[2:3]
+        status2_g = self.get[2:3]
         return status2_g
 
+'''
     def gauge_change_1(self):
         self.tpg261.write(b"SEN , 2 , 1 \r\n")
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
         get = self.tpg261.readline()
-        status1_g = str(get[0:1])
-        status2_g = str(get[2:3])
+        status1_g = self.get[0:1]
+        status2_g = self.get[2:3]
 
     def gauge_change_2(self):
         self.tpg261.write(b"SEN , 1 , 2 \r\n")
@@ -62,8 +63,8 @@ class device(object):
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
         get = self.tpg261.readline()
-        status1_g = str(get[0:1])
-        status2_g = str(get[2:3])
+        status1_g = self.get[0:1]
+        status2_g = self.get[2:3]
 
     def gauge_change_Off1_2(self):
         self.tpg261.write(b"SEN , 1 , 1 \r\n")
@@ -71,10 +72,10 @@ class device(object):
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
         get = self.tpg261.readline()
-        status1_g = str(get[0:1])
-        status2_g = str(get[2:3])
+        status1_g = self.get[0:1]
+        status2_g = self.get[2:3]
 
-
+'''
 
     def pres_unit_bar(self):
         self.tpg261.write(b"UNI,0 \r\n")
