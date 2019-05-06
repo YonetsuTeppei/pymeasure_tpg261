@@ -47,6 +47,35 @@ class device(object):
         status2_g = self.raw_g[2:3]
         return status2_g
 
+    def gauge_change_1(self):
+        self.tpg261.write(b"SEN , 2 , 1 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        get = self.tpg261.readline()
+        status1_g = str(get[0:1])
+        status2_g = str(get[2:3])
+
+    def gauge_change_2(self):
+        self.tpg261.write(b"SEN , 1 , 2 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        get = self.tpg261.readline()
+        status1_g = str(get[0:1])
+        status2_g = str(get[2:3])
+
+    def gauge_change_Off1_2(self):
+        self.tpg261.write(b"SEN , 1 , 1 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        get = self.tpg261.readline()
+        status1_g = str(get[0:1])
+        status2_g = str(get[2:3])
+
+
+
     def pres_unit_bar(self):
         self.tpg261.write(b"UNI,0 \r\n")
         time.sleep(0.3)
@@ -73,6 +102,7 @@ class device(object):
         self.raw_pa = self.tpg261.readline()
         unit = self.raw_pa[0:1]
         return unit
+
 '''
  def pressure_both(self):
          self.tpg261.write(b"PRX \r\n")
@@ -86,8 +116,17 @@ class device(object):
          pressure2 = str(raw2[16:27])
 
 
-    def gauge_change_1(self,gague1,gague2):
-        self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
+    def gauge_change_1(self):
+        self.tpg261.write(b"SEN , 2 , 1 \r\n")
+        time.sleep(0.3)
+        self.tpg261.write(b"\x05")
+        time.sleep(0.3)
+        get = self.tpg261.readline()
+        status1 = str(get[0:1])
+        status2 = str(get[2:3])
+
+    def gauge_change_2(self):
+        self.tpg261.write(b"SEN , 1 , 2 \r\n")
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
