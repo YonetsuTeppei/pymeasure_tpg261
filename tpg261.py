@@ -86,7 +86,7 @@ class device(object):
          pressure2 = str(raw2[16:27])
 
 
-    def gauge_change(self,gague1,gague2):
+    def gauge_change_1(self,gague1,gague2):
         self.tpg261.write(b"SEN , gague1 , gague2 \r\n")
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
