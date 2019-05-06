@@ -47,7 +47,7 @@ class device(object):
         status2_g = self.get[2:3]
         return status2_g
 
-    '''
+
     def gauge_change_1(self):
         self.tpg261.write(b"SEN , 2 , 1 \r\n")
         time.sleep(0.3)
@@ -75,7 +75,7 @@ class device(object):
         status1_g = self.get[0:1]
         status2_g = self.get[2:3]
 
-        '''
+
 
     def pres_unit_bar(self):
         self.tpg261.write(b"UNI,0 \r\n")
