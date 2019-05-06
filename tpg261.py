@@ -53,7 +53,7 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = self.tpg261.readline()
+        self.get = self.tpg261.readline()
         status1_g = self.get[0:1]
         status2_g = self.get[2:3]
 
@@ -62,7 +62,7 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = self.tpg261.readline()
+        self.get = self.tpg261.readline()
         status1_g = self.get[0:1]
         status2_g = self.get[2:3]
 
@@ -71,7 +71,7 @@ class device(object):
         time.sleep(0.3)
         self.tpg261.write(b"\x05")
         time.sleep(0.3)
-        get = self.tpg261.readline()
+        self.get = self.tpg261.readline()
         status1_g = self.get[0:1]
         status2_g = self.get[2:3]
 
